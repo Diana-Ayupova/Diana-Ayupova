@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "19b308c6-8da8-415d-b9df-7531d88fb633",
+		"name": "Course 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28729332"
+	},
+	"item": [
+		{
+			"name": "Получение расписания",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"from\": \"2023-07-24T00:00:00+03:00\",\r\n \"till\": \"2023-07-28T23:59:59+03:00\",\r\n \"onlyTypes\": [\r\n     \"slot\",\r\n     \"event\"\r\n ]'\r\n \"statuses\": [\r\n     \"whithout_status\"\r\n ]\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/events",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события в будущем",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"backgroundColour\": \"#F4F5F6\",\r\n\"colour\": \"81888D\",\r\n\"description\": \"\",\r\n\"title\": \"Аюпова\",\r\n\"startAt\": \"2023-07-28T15:00:00+03:00\",\r\n\"endAt\": \"2023-07-28T15:30:00+03:00\" }"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/createPersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события в прошлом",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"backgroundColour\": \"#F4F5F6\",\r\n\"colour\": \"81888D\",\r\n\"description\": \"\",\r\n\"title\": \"Аюпова\",\r\n\"startAt\": \"2023-06-21T15:00:00+03:00\",\r\n\"endAt\": \"2023-06-21T15:30:00+03:00\" }"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/createPersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события с неправильной датой",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"backgroundColour\": \"#F4F5F6\",\r\n\"colour\": \"81888D\",\r\n\"description\": \"\",\r\n\"title\": \"Аюпова\",\r\n\"startAt\": \"1111111\",\r\n\"endAt\": \"1111111\" }"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/createPersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание личного события с неустановленной датой",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"backgroundColour\": \"#F4F5F6\",\r\n\"colour\": \"81888D\",\r\n\"description\": \"\",\r\n\"title\": \"Аюпова\",\r\n\"startAt\": \"\",\r\n\"endAt\": \"\" }"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/createPersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактирование события без изменения данных",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2023-07-28T15:00:00+03:00\",\r\n    \"endAt\": \"2023-07-28T15:30:00+03:00\" ,\r\n    \"title\": \"Аюпова\",\r\n    \"description\": \"\",\r\n    \"colour\": \"81888D\",\r\n    \"backgroundColour\": \"#F4F5F6\",\r\n    \"id\": 0,\r\n    \"oldStartAt\": \"2023-07-28T15:30:00+03:00\" \r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/updatePersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактирование события изменение только даты",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2023-07-28T16:00:00+03:00\",\r\n    \"endAt\": \"2023-07-28T16:30:00+03:00\" ,\r\n    \"title\": \"Аюпова\",\r\n    \"description\": \"\",\r\n    \"colour\": \"81888D\",\r\n    \"backgroundColour\": \"#F4F5F6\",\r\n    \"id\": 0,\r\n    \"oldStartAt\": \"2023-07-28T15:30:00+03:00\" \r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/updatePersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактирование события с изменением всех данных",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2023-08-28T15:00:00+03:00\",\r\n    \"endAt\": \"2023-08-28T15:30:00+03:00\" ,\r\n    \"title\": \"Аюпова1\",\r\n    \"description\": \"Тест\",\r\n    \"colour\": \"81888D\",\r\n    \"backgroundColour\": \"#F4F5F6\",\r\n    \"id\": 0,\r\n    \"oldStartAt\": \"2023-07-28T15:30:00+03:00\" \r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/updatePersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление события в будущем",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 0,\r\n    \"StartAt\": \"2023-07-28T15:30:00+03:00\" \r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/removePersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"removePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление события в прошлом",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 0,\r\n    \"StartAt\": \"2023-06-21T15:30:00+03:00\" \r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/removePersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"removePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление несуществующего личного события",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 0,\r\n    \"StartAt\": \"2023-06-21T15:30:00+03:00\" \r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}{{Version}}/schedule/removePersonal",
+					"host": [
+						"{{URL}}{{Version}}"
+					],
+					"path": [
+						"schedule",
+						"removePersonal"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
